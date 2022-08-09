@@ -48,7 +48,52 @@ while (count <= gridWidth * gridWidth) {
 
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
+//for more than 1 
+let paletteColors = document.querySelectorAll(".palette .palette-color")
+for(let i=0; i< paletteColors.length; i++ ){
+  paletteColors[i].addEventListener('click', function(){
+    console.log(paletteColors[i])
+    
+    brush.classList.replace(brush.classList[1], paletteColors[i].classList[1])
+  })
+}
 
+// for 1 selector on the page 
+let brush = document.querySelector(".brush-icon")
+
+  brush.addEventListener('click', function(){
+    console.log(brush)
+   
+  })
+
+
+
+
+let canvasArea = document.querySelectorAll(".canvas .square");
+  for (let square of canvasArea) {
+    square.addEventListener('mouseover', function(){
+      console.log(square)
+      if(mouseDown === true){
+
+
+      square.classList.replace(square.classList[1],brush.classList[1])}
+    })
+  }
+
+  let mouseDown = false;
+  let app = document.querySelector(".app")
+
+  app.addEventListener('mousedown', function(){
+    console.log("click");
+    mouseDown = true;
+    console.log(`MouseDown: ${mouseDown}`);
+    
+  });
+  app.addEventListener('mouseup', function(){
+    console.log("unclick");
+    mouseDown = false;
+    console.log(`MouseDown: ${mouseDown}`);
+  });
 
 
 /****************************
